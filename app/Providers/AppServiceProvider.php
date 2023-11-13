@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use Filament\Facades\Filament;
+use Filament\Support\Facades\FilamentIcon;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -19,6 +21,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        FilamentIcon::register([
+//            'panels::sidebar.group.collapse-button' => 'far-hospital',
+//            'panels::pages.dashboard.navigation-item' => 'far-face-smile'
+        ]);
+
     }
 }
