@@ -1,7 +1,7 @@
 <x-filament-panels::page>
 
     <div class="grid grid-cols-3">
-        <div class="tradingview-widget-container col-span-2">
+        <div class="tradingview-widget-container">
             <div id="chart"></div>
             <div class="tradingview-widget-copyright">
                 <a
@@ -11,16 +11,6 @@
                 >
                     <span class="blue-text"> Track all markets on Tradingview </span>
                 </a>
-            </div>
-        </div>
-        <div class="sidebar">
-            <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aliquid blanditiis cumque, cupiditate
-                deleniti dignissimos ea hic illo inventore laudantium magnam molestiae nesciunt officia officiis
-                possimus quis reprehenderit similique vitae.
-            </div>
-            <div>Adipisci incidunt nihil numquam obcaecati officia praesentium quae tenetur! Autem debitis dolore hic
-                incidunt ipsam libero magnam minima nihil nostrum, odit porro, praesentium quod quos saepe sint sunt
-                totam ullam!
             </div>
         </div>
     </div>

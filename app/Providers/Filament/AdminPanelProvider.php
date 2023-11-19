@@ -2,20 +2,15 @@
 
 namespace App\Providers\Filament;
 
-use App\Filament\Widgets\BalanceWidget;
+
 use App\Models\Account;
-use Faker\Provider\Base;
 use Filament\FontProviders\GoogleFontProvider;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
-use Filament\Navigation\NavigationBuilder;
-use Filament\Navigation\NavigationItem;
-use Filament\Pages;
 use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
-use Filament\Widgets;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Cookie\Middleware\EncryptCookies;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
@@ -33,21 +28,14 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('user')
             ->login()
+            ->profile()
             ->colors([
-                'primary' => Color::Blue,
-                'gray' => Color::Slate
+                'primary' => Color::Sky,
+                'gray' => Color::Slate,
             ])
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
-            ->pages([
-                Pages\Dashboard::class,
-            ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
-            ->widgets([
-                Widgets\AccountWidget::class,
-                BalanceWidget::class
-//                Widgets\FilamentInfoWidget::class,
-            ])
             ->middleware([
                 EncryptCookies::class,
                 AddQueuedCookiesToResponse::class,
@@ -62,10 +50,14 @@ class AdminPanelProvider extends PanelProvider
             ->authMiddleware([
                 Authenticate::class,
             ])
+            ->navigation(false)
             ->maxContentWidth('full')
             ->sidebarCollapsibleOnDesktop()
+            ->topNavigation()
             ->font('Prompt', provider: GoogleFontProvider::class)
             ->brandName('Alphax5')
-            ->tenant(Account::class, ownershipRelationship: 'account');
+            ->tenant(Account::class, ownershipRelationship: 'account')
+            ->widgets([])
+            ->databaseNotifications();
     }
 }

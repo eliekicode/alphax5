@@ -59,7 +59,6 @@ class TradeResource extends Resource
             'index' => Pages\ListTrades::route('/'),
             'create' => Pages\CreateTrade::route('/create'),
             'edit' => Pages\EditTrade::route('/{record}/edit'),
-            'trade' => Pages\Trade::route('/trade'),
             'robot-trader' => Pages\RobotTrader::route('/robot-trader'),
         ];
     }

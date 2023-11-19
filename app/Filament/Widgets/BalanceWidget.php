@@ -11,15 +11,25 @@ use Illuminate\Database\Eloquent\Model;
 
 class BalanceWidget extends BaseWidget
 {
+    protected function getColumns(): int
+    {
+        return 4;
+    }
+
     protected function getStats(): array
     {
         return [
             Stat::make('Balance', $this->getBalance())
+                ->color('danger')
                 ->icon('heroicon-o-banknotes'),
             Stat::make('Deposit', $this->getDepositsTotal()
             )
                 ->icon('heroicon-o-arrow-trending-up'),
+            Stat::make('Bonus', $this->getBonusesTotal())
+                ->icon('heroicon-o-arrow-trending-down'),
             Stat::make('Withdraw', $this->getWithdrawsTotal())
+                ->icon('heroicon-o-arrow-trending-down'),
+            Stat::make('Profit/Loss', $this->getProfitsTotal())
                 ->icon('heroicon-o-arrow-trending-down'),
         ];
     }
@@ -39,7 +49,18 @@ class BalanceWidget extends BaseWidget
 
     private function getWithdrawsTotal(): string
     {
-        return Money::from(cent: $this->getAccount()->withdraws_total_amount, currency: $this->getAccount()->currency)->formatted;
+        return "-" . Money::from(cent: $this->getAccount()->withdraws_total_amount, currency: $this->getAccount()->currency)->formatted;
+    }
+
+
+    private function getProfitsTotal(): string
+    {
+        return Money::from(cent: $this->getAccount()->trades()->sum('profit') * 100, currency: $this->getAccount()->currency)->formatted;
+    }
+
+    private function getBonusesTotal(): string
+    {
+        return Money::from(cent: $this->getAccount()->bonuses()->sum('amount'), currency: $this->getAccount()->currency)->formatted;
     }
 
     private function getAccount(): Account|Model|null
