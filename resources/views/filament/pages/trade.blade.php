@@ -15,7 +15,7 @@
             </div>
         </div>
 
-        <div id="chart" class="chart__widget">
+        <div id="chart" class="chart__widget" wire:ignore>
             <h1>Chart</h1>
 
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, blanditiis corporis debitis
