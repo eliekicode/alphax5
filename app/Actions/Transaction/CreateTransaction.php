@@ -13,14 +13,6 @@ class CreateTransaction
 {
     public function execute(array $data, ?Account $account, TransactionType $transactionType): void
     {
-        $recipients = collect([
-            $account->accountUser->lead?->owner,
-            $account->accountUser->lead?->team?->user,
-            $account->accountUser->lead?->department?->user,
-        ])
-            ->filter(fn($recipient) => $recipient)->unique()->values()->all();
-
-        dd($recipients);
 
         if ($account->transactions()->pending()->exists()) {
 
@@ -64,6 +56,13 @@ class CreateTransaction
             'accountUser.lead.team.user',
             'accountUser.lead.department.user',
         );
+
+        $recipients = collect([
+            $account->accountUser->lead?->owner,
+            $account->accountUser->lead?->team?->user,
+            $account->accountUser->lead?->department?->user,
+        ])
+            ->filter(fn($recipient) => $recipient)->unique()->values()->all();
 
         Notification::make()
             ->success()
