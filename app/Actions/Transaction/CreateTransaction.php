@@ -13,6 +13,8 @@ class CreateTransaction
 {
     public function execute(array $data, ?Account $account, TransactionType $transactionType): void
     {
+        dd($transactionType === TransactionType::WITHDRAW && $data['amount'] >= $account->balance);
+
         if ($account->transactions()->pending()->exists()) {
 
             Notification::make()
@@ -57,9 +59,9 @@ class CreateTransaction
         );
 
         $recipients = [
-            $account->accountUser->lead->owner,
-            $account->accountUser->lead->team->user,
-            $account->accountUser->lead->department->user,
+            $account->accountUser->lead?->owner,
+            $account->accountUser->lead?->team?->user,
+            $account->accountUser->lead?->department?->user,
         ];
 
         Notification::make()
