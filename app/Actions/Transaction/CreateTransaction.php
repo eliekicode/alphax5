@@ -27,7 +27,7 @@ class CreateTransaction
 
             Notification::make()
                 ->danger()
-                ->title("You can't withdraw {$data['amount']} from {$account->balance}")
+                ->title("You can't withdraw {$data['amount']} from {$account->balance->concrete}")
                 ->send();
 
             return;
@@ -42,8 +42,8 @@ class CreateTransaction
             'user_id' => auth()->id(),
             'type' => $transactionType->value,
             'currency_id' => Currency::select('id')->where('code', 'eur')->first()->id,
-            'crypto_id' => $data['crypto_id'],
-            'wallet_id' => $data['wallet_id'],
+//            'crypto_id' => $data['crypto_id'],
+//            'wallet_id' => $data['wallet_id'],
         ]);
 
         Notification::make()

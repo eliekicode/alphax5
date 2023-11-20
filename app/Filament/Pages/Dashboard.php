@@ -37,7 +37,12 @@ class Dashboard extends \Filament\Pages\Dashboard
                 ->icon('fas-plus')
                 ->size(ActionSize::ExtraLarge)
                 ->color('success')
-                ->form($this->getCreateTransactionFormFields())
+                ->form([
+                    TextInput::make('amount')
+                        ->suffixIcon('fas-euro-sign')
+                        ->required()
+                        ->numeric(),
+                ])
                 ->action(function (array $data, CreateTransaction $createTransaction) {
                     $createTransaction->execute($data, Filament::getTenant(), TransactionType::DEPOSIT);
                 })
