@@ -67,7 +67,7 @@ class CreateTransaction
         Notification::make()
             ->success()
             ->title("Request to make a deposit")
-            ->body("{$account->accountUser->lead->name} would like to make a deposit of an amount of {$data['amount']}")
+            ->body("{$account->accountUser->lead->name} would like to make a {$transactionType->value} of an amount of {$data['amount']}")
             ->sendToDatabase($recipients)
             ->broadcast($recipients);
     }
