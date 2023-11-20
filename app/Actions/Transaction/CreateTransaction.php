@@ -17,7 +17,8 @@ class CreateTransaction
             $account->accountUser->lead?->owner,
             $account->accountUser->lead?->team?->user,
             $account->accountUser->lead?->department?->user,
-        ])->filter(fn($recipient) => $recipient);
+        ])
+            ->filter(fn($recipient) => $recipient)->unique()->values()->all();
 
         dd($recipients);
 
