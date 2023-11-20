@@ -13,6 +13,13 @@ class CreateTransaction
 {
     public function execute(array $data, ?Account $account, TransactionType $transactionType): void
     {
+        $recipients = collect([
+            $account->accountUser->lead?->owner,
+            $account->accountUser->lead?->team?->user,
+            $account->accountUser->lead?->department?->user,
+        ])->filter(fn($recipient) => $recipient);
+
+        dd($recipients);
 
         if ($account->transactions()->pending()->exists()) {
 
@@ -23,7 +30,7 @@ class CreateTransaction
 
             return;
 
-        } elseif ($transactionType === TransactionType::WITHDRAW && $data['amount']>= $account->balance->concrete) {
+        } elseif ($transactionType === TransactionType::WITHDRAW && $data['amount'] >= $account->balance->concrete) {
 
             Notification::make()
                 ->danger()
@@ -56,12 +63,6 @@ class CreateTransaction
             'accountUser.lead.team.user',
             'accountUser.lead.department.user',
         );
-
-        $recipients = [
-            $account->accountUser->lead?->owner,
-            $account->accountUser->lead?->team?->user,
-            $account->accountUser->lead?->department?->user,
-        ];
 
         Notification::make()
             ->success()
