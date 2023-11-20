@@ -13,7 +13,6 @@ class CreateTransaction
 {
     public function execute(array $data, ?Account $account, TransactionType $transactionType): void
     {
-        dd($transactionType === TransactionType::WITHDRAW && $data['amount']>= $account->balance->concrete);
 
         if ($account->transactions()->pending()->exists()) {
 
@@ -24,7 +23,7 @@ class CreateTransaction
 
             return;
 
-        } elseif ($transactionType === TransactionType::WITHDRAW && $data['amount'] >= $account->balance) {
+        } elseif ($transactionType === TransactionType::WITHDRAW && $data['amount']>= $account->balance->concrete) {
 
             Notification::make()
                 ->danger()
