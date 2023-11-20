@@ -13,7 +13,7 @@ class CreateTransaction
 {
     public function execute(array $data, ?Account $account, TransactionType $transactionType): void
     {
-        dd($transactionType, $data['amount'], $account->balance);
+        dd($transactionType === TransactionType::WITHDRAW && $data['amount']>= $account->balance->concrete);
 
         if ($account->transactions()->pending()->exists()) {
 
