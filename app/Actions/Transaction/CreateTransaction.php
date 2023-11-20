@@ -14,9 +14,19 @@ class CreateTransaction
     public function execute(array $data, ?Account $account, TransactionType $transactionType): void
     {
         if ($account->transactions()->pending()->exists()) {
+
             Notification::make()
                 ->danger()
                 ->title("You have a pending transaction, so the operation can't go on.")
+                ->send();
+
+            return;
+
+        } elseif ($transactionType === TransactionType::WITHDRAW && $data['amount'] >= $account->balance) {
+
+            Notification::make()
+                ->danger()
+                ->title("You can't withdraw {$data['amount']} from {$account->balance}")
                 ->send();
 
             return;
@@ -41,12 +51,8 @@ class CreateTransaction
             ->send();
 
         $account->load(
-            'accountUser',
-            'accountUser.lead',
             'accountUser.lead.owner',
-            'accountUser.lead.team',
             'accountUser.lead.team.user',
-            'accountUser.lead.department',
             'accountUser.lead.department.user',
         );
 
