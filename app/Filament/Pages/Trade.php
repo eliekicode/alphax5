@@ -7,6 +7,9 @@ use App\Enums\Transaction\TransactionType;
 use App\Filament\Resources\TradeResource\Widgets\TradingHistoryWidget;
 use App\Filament\Resources\TradeResource\Widgets\TradingNewsWidget;
 use App\Filament\Resources\TradeResource\Widgets\TradingViewWidget;
+use App\Filament\Widgets\BalanceWidget;
+use App\Filament\Widgets\LatestTrades;
+use App\Filament\Widgets\LatestTransactions;
 use App\Models\Currency;
 use Filament\Actions\Action;
 use Filament\Facades\Filament;
@@ -90,12 +93,17 @@ class Trade extends Page
         return null;
     }
 
-    protected function getHeaderWidgets(): array
+    protected function getFooterWidgets(): array
     {
         return [
-//            TradingNewsWidget::class,
-//            TradingViewWidget::class,
-//            TradingHistoryWidget::class
+            LatestTrades::class,
+        ];
+    }
+
+    public function getWidgets(): array
+    {
+        return [
+            LatestTrades::class,
         ];
     }
 
@@ -109,8 +117,8 @@ class Trade extends Page
         return "Balance : " . Filament::getTenant()->balance->formatted;
     }
 
-    public function getHeaderWidgetsColumns(): int|array
+    public function getFooterWidgetsColumns(): int|array
     {
-        return 12;
+        return 2;
     }
 }

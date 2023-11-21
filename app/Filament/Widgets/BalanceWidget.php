@@ -68,7 +68,8 @@ class BalanceWidget extends BaseWidget
 
     private function getBonusesTotal(): string
     {
-        return Money::from(cent: $this->getAccount()->bonuses()->sum('amount'), currency: $this->getAccount()->currency)->formatted;
+//        bonusesTotalAmount
+        return Money::from(cent: $this->getAccount()->bonuses_total_amount, currency: $this->getAccount()->currency)->formatted;
     }
 
     private function getAccount(): Account|Model|null

@@ -28,19 +28,20 @@ class Account extends Model implements HasCurrentTenantLabel
         'withdrawsTotalAmount' => MoneyCast::class,
     ];
 
-    public function bonusesTotalAmount(): Attribute
-    {
-        return Attribute::make(
-            get: fn(): int => $this->bonuses()->depositsTotalAmount()->sum('amount')
-        );
-    }
-
     public function depositsTotalAmount(): Attribute
     {
         return Attribute::make(
             get: fn(): int => $this->transactions()->depositsTotalAmount()->sum('amount')
         );
     }
+
+    public function bonusesTotalAmount(): Attribute
+    {
+        return Attribute::make(
+            get: fn(): int => $this->transactions()->bonusesTotalAmount()->sum('amount')
+        );
+    }
+
 
     public function withdrawsTotalAmount(): Attribute
     {

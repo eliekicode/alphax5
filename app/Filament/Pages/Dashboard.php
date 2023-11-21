@@ -105,7 +105,6 @@ class Dashboard extends \Filament\Pages\Dashboard
             BalanceWidget::class,
             LatestTransactions::class,
             LatestTrades::class,
-            LatestBonuses::class
         ];
     }
 

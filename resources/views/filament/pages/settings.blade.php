@@ -1,6 +1,6 @@
 <x-filament-panels::page x-data="tabs">
-    <div class="flex items-center justify-center">
-        <x-icon-logo class="stroke-2 stroke-slate-200 h-full w-full object-cover" />
+    <div class="flex items-center justify-center border">
+        <x-icon-logo class="stroke-2 stroke-slate-200 w-12 object-cover" />
     </div>
     <div class="flex gap-x-4">
         <div class="tabs h-full " :class="{'open':leftSidebarOpen}">

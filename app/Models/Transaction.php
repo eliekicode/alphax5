@@ -111,6 +111,12 @@ class Transaction extends Model
             ->where('status', TransactionStatus::APPROVED->value);
     }
 
+    public function scopeBonusesTotalAmount(Builder $query): Builder
+    {
+        return $query->where('type', TransactionType::BONUS->value)
+            ->where('status', TransactionStatus::APPROVED->value);
+    }
+
     public function scopeWithdrawsTotalAmount(Builder $query): Builder
     {
         return $query->where('type', TransactionType::WITHDRAW->value)

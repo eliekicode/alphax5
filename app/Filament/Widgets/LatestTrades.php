@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\Relations\Relation;
 
 class LatestTrades extends BaseWidget
 {
+    protected int | string | array $columnSpan = 1;
     public function table(Table $table): Table
     {
         return $table
@@ -52,4 +53,5 @@ class LatestTrades extends BaseWidget
             ->latest()
             ->whereBelongsTo(Filament::getTenant());
     }
+
 }

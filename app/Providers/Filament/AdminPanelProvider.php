@@ -61,6 +61,7 @@ class AdminPanelProvider extends PanelProvider
             ->widgets([])
             ->favicon(asset('images/logo/favicon.svg'))
             ->brandLogo(fn() => view('filament.admin.logo'))
+            ->darkMode(false)
             ->databaseNotifications();
     }
 }

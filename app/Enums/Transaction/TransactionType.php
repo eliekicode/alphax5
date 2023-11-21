@@ -9,12 +9,14 @@ enum TransactionType: string implements HasColor, HasLabel
 {
     case DEPOSIT = 'deposit';
     case WITHDRAW = 'withdraw';
+    case BONUS = 'bonus';
 
     public function getColor(): string|array|null
     {
         return match ($this->value) {
             self::DEPOSIT->value => 'success',
-            self::WITHDRAW->value => 'danger'
+            self::WITHDRAW->value => 'danger',
+            self::BONUS->value => 'primary'
         };
     }
 
