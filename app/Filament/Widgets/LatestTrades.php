@@ -4,6 +4,7 @@ namespace App\Filament\Widgets;
 
 use App\Enums\Trade\TradeType;
 use App\Models\Trade;
+use App\ValueObjects\Money;
 use Filament\Facades\Filament;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -26,8 +27,8 @@ class LatestTrades extends BaseWidget
                 Tables\Columns\TextColumn::make('close_price')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('profit')
-                    ->label('Profit/Loss')
-                    ->sortable(),
+                    ->formatStateUsing(fn(?Trade $record) => Money::from($record->profit * 100, $record->account->currency)->formatted)
+                    ->label('Profit/Loss'),
                 Tables\Columns\TextColumn::make('type')
                     ->badge(),
                 Tables\Columns\TextColumn::make('created_at')
