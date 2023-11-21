@@ -59,7 +59,7 @@ class AdminPanelProvider extends PanelProvider
             ->brandName('Alphax5')
             ->tenant(Account::class, ownershipRelationship: 'account')
             ->widgets([])
-            ->favicon(asset('images/logo/favicon.jpg'))
+            ->favicon(asset('images/logo/favicon.svg'))
             ->brandLogo(fn() => view('filament.admin.logo'))
             ->databaseNotifications();
     }

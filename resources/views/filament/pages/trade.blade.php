@@ -1,6 +1,7 @@
 <x-filament-panels::page>
 
     <div class="page__container">
+{{--        <x-icon-logo class="h-12" />--}}
         <div id="chart" class="chart__widget" wire:ignore>
 
         </div>
@@ -14,7 +15,7 @@
             symbol: "BINANCE:BTCUSDT",
             interval: "240",
             timezone: "Etc/Utc",
-            theme: "dark",
+            theme: "light",
             style: "1",
             locale: "en",
             toolbar_bg: "#f1f3f6",

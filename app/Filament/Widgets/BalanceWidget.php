@@ -20,14 +20,22 @@ class BalanceWidget extends BaseWidget
     {
         return [
             Stat::make('Balance', $this->getBalance())
-                ->color('danger')
+                ->extraAttributes([
+                    'class' => 'balance__widget'
+                ])
                 ->icon('heroicon-o-banknotes'),
             Stat::make('Deposit', $this->getDepositsTotal()
             )
+                ->extraAttributes([
+                    'class' => 'deposit__widget'
+                ])
                 ->icon('heroicon-o-arrow-trending-up'),
             Stat::make('Bonus', $this->getBonusesTotal())
                 ->icon('heroicon-o-arrow-trending-down'),
             Stat::make('Withdraw', $this->getWithdrawsTotal())
+                ->extraAttributes([
+                    'class' => 'withdraw__widget'
+                ])
                 ->icon('heroicon-o-arrow-trending-down'),
             Stat::make('Profit/Loss', $this->getProfitsTotal())
                 ->icon('heroicon-o-arrow-trending-down'),

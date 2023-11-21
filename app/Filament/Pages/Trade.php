@@ -104,7 +104,12 @@ class Trade extends Page
         return "Trading AI";
     }
 
-    public function getHeaderWidgetsColumns(): int | array
+    public function getSubheading(): string|Htmlable|null
+    {
+        return "Balance : " . Filament::getTenant()->balance->formatted;
+    }
+
+    public function getHeaderWidgetsColumns(): int|array
     {
         return 12;
     }

@@ -25,6 +25,9 @@ class LatestTransactions extends BaseWidget
                 $this->getTableQuery()
             )
             ->columns([
+                TextColumn::make('user.name')
+                    ->searchable()
+                    ->label('Initiated by'),
                 TextColumn::make('amount'),
                 TextColumn::make('currency.symbol'),
                 TextColumn::make('type')
@@ -32,6 +35,7 @@ class LatestTransactions extends BaseWidget
                 TextColumn::make('status')
                     ->badge(),
                 TextColumn::make('created_at')
+                    ->label('Initiated at')
                     ->dateTime(),
             ])
             ->filters([

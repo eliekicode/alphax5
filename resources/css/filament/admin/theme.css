@@ -38,9 +38,22 @@ html{
 
 
 .fi-logo{
-    @apply box-border bg-red-500 flex items-center justify-center h-full !important;
+    @apply box-border flex items-center justify-center h-full !important;
 }
 
 .fi-logo img{
-    @apply box-border h-[48px] w-20 object-cover object-center !important;
+    @apply box-border h-full w-16 object-cover object-center !important;
+}
+
+
+.fi-wi-stats-overview-stat.balance__widget{
+    @apply bg-green-50 text-white !important;
+}
+
+.fi-wi-stats-overview-stat.balance__widget .text-3xl{
+    @apply text-green-950/60 !important;
+}
+
+.fi-wi-stats-overview-stat.withdraw__widget .text-3xl{
+    @apply text-red-400 !important;
 }

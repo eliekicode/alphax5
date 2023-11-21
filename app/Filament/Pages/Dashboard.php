@@ -6,6 +6,7 @@ use App\Actions\Transaction\CreateTransaction;
 use App\Enums\Transaction\TransactionType;
 use App\Filament\Resources\TradeResource;
 use App\Filament\Widgets\BalanceWidget;
+use App\Filament\Widgets\LatestBonuses;
 use App\Filament\Widgets\LatestTrades;
 use App\Filament\Widgets\LatestTransactions;
 use App\Models\Currency;
@@ -103,7 +104,8 @@ class Dashboard extends \Filament\Pages\Dashboard
         return [
             BalanceWidget::class,
             LatestTransactions::class,
-            LatestTrades::class
+            LatestTrades::class,
+            LatestBonuses::class
         ];
     }
 
