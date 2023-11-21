@@ -50,6 +50,7 @@ class AdminPanelProvider extends PanelProvider
             ->authMiddleware([
                 Authenticate::class,
             ])
+            ->viteTheme('resources/css/filament/admin/theme.css')
             ->navigation(false)
             ->maxContentWidth('full')
             ->sidebarCollapsibleOnDesktop()
@@ -58,6 +59,8 @@ class AdminPanelProvider extends PanelProvider
             ->brandName('Alphax5')
             ->tenant(Account::class, ownershipRelationship: 'account')
             ->widgets([])
+            ->favicon(asset('images/logo/favicon.jpg'))
+            ->brandLogo(fn() => view('filament.admin.logo'))
             ->databaseNotifications();
     }
 }

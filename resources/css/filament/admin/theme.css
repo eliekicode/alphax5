@@ -1,0 +1,46 @@
+@import '/vendor/filament/filament/resources/css/theme.css';
+
+@config 'tailwind.config.js';
+
+:root,
+body,
+html{
+    height: 100% !important;
+}
+
+.tabs{
+    @apply border grid grid-cols-[80px_1fr] w-[80px] max-h-full h-screen;
+}
+
+.tabs__nav-menu{
+    @apply h-full flex flex-col gap-y-4;
+}
+
+.tabs__nav-item {
+    @apply cursor-pointer text-center ;
+}
+
+.tabs__nav{
+    @apply w-[80px];
+}
+
+.tabs__content{
+    @apply w-full bg-yellow-50 overflow-x-hidden;
+}
+
+.tabs.open{
+    @apply w-[450px] transition-all duration-300 ease-in-out;
+}
+
+.tabs.open .tabs__content{
+    @apply px-4 bg-white;
+}
+
+
+.fi-logo{
+    @apply box-border bg-red-500 flex items-center justify-center h-full !important;
+}
+
+.fi-logo img{
+    @apply box-border h-[48px] w-20 object-cover object-center !important;
+}
