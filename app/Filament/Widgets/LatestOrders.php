@@ -29,6 +29,7 @@ class LatestOrders extends BaseWidget
                 Tables\Columns\TextColumn::make('type')
                     ->badge(),
                 Tables\Columns\TextColumn::make('created_at')
+                    ->label('Closed at')
                     ->dateTime(),
             ])
             ->actions([
