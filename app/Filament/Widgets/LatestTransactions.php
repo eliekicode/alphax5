@@ -25,14 +25,14 @@ class LatestTransactions extends BaseWidget
                 $this->getTableQuery()
             )
             ->columns([
-                TextColumn::make('serial')
-                    ->searchable(),
                 TextColumn::make('amount'),
                 TextColumn::make('currency.symbol'),
                 TextColumn::make('type')
                     ->badge(),
                 TextColumn::make('status')
                     ->badge(),
+                TextColumn::make('created_at')
+                    ->dateTime(),
             ])
             ->filters([
                 Tables\Filters\SelectFilter::make('type')
