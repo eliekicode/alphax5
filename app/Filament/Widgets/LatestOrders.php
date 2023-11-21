@@ -4,6 +4,7 @@ namespace App\Filament\Widgets;
 
 use App\Enums\Trade\TradeType;
 use App\Models\Trade;
+use App\ValueObjects\Money;
 use Filament\Facades\Filament;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -21,11 +22,9 @@ class LatestOrders extends BaseWidget
             ->columns([
                 Tables\Columns\TextColumn::make('symbol'),
                 Tables\Columns\TextColumn::make('open_price'),
-                Tables\Columns\TextColumn::make('account.currency.code')
-                    ->formatStateUsing(fn($state) => strtoupper($state))
-                    ->label('Currency'),
                 Tables\Columns\TextColumn::make('close_price'),
                 Tables\Columns\TextColumn::make('profit')
+                    ->formatStateUsing(fn(?Trade $record) => Money::from($record->profit * 100, $record->account->currency)->formatted)
                     ->label('Profit/Loss'),
                 Tables\Columns\TextColumn::make('type')
                     ->badge(),
