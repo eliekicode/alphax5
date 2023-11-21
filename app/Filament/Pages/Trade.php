@@ -8,6 +8,7 @@ use App\Filament\Resources\TradeResource\Widgets\TradingHistoryWidget;
 use App\Filament\Resources\TradeResource\Widgets\TradingNewsWidget;
 use App\Filament\Resources\TradeResource\Widgets\TradingViewWidget;
 use App\Filament\Widgets\BalanceWidget;
+use App\Filament\Widgets\LatestOrders;
 use App\Filament\Widgets\LatestTrades;
 use App\Filament\Widgets\LatestTransactions;
 use App\Models\Currency;
@@ -96,7 +97,7 @@ class Trade extends Page
     protected function getFooterWidgets(): array
     {
         return [
-            LatestTrades::class,
+            LatestOrders::class,
         ];
     }
 
