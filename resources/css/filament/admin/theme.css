@@ -38,11 +38,11 @@ html{
 
 
 .fi-logo{
-    @apply box-border flex items-center justify-center h-full !important;
+    @apply box-border flex items-center dark:text-white rounded-sm justify-center h-full !important;
 }
 
 .fi-logo img{
-    @apply box-border h-full w-16 object-cover object-center !important;
+    @apply box-border h-full w-16 dark:p-0.5 object-cover object-center !important;
 }
 
 

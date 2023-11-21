@@ -19,10 +19,12 @@ class LatestBonuses extends BaseWidget
                 $this->getTableQuery()
             )
             ->columns([
-                Tables\Columns\TextColumn::make('amount'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->label('Awarded at')
-                ->dateTime(),
+                    ->dateTime(),
+                Tables\Columns\TextColumn::make('amount'),
+                Tables\Columns\TextColumn::make('currency.code')
+                    ->formatStateUsing(fn($state) => strtoupper($state)),
             ]);
     }
 

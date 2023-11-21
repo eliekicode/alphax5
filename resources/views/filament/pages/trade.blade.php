@@ -1,12 +1,10 @@
 <x-filament-panels::page>
 
     <div class="page__container">
-{{--        <x-icon-logo class="h-12" />--}}
         <div id="chart" class="chart__widget" wire:ignore>
 
         </div>
     </div>
-
 
     <script src="https://s3.tradingview.com/tv.js"></script>
     <script>

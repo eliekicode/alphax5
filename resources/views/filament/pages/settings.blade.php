@@ -1,5 +1,7 @@
 <x-filament-panels::page x-data="tabs">
-
+    <div class="flex items-center justify-center">
+        <x-icon-logo class="stroke-2 stroke-slate-200 h-full w-full object-cover" />
+    </div>
     <div class="flex gap-x-4">
         <div class="tabs h-full " :class="{'open':leftSidebarOpen}">
             <nav class="tabs__nav">
@@ -18,7 +20,6 @@
             </section>
         </div>
         <div class="flex-1">
-            <img src="{{ asset('images/logo/ALPHAX5 (1).svg') }}" class="h-36 bg-amber-200" alt="">
             <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A eos minima molestiae quae rem repellendus
                 saepe suscipit. Ab culpa harum itaque neque optio pariatur porro possimus, praesentium provident quis
                 sed.

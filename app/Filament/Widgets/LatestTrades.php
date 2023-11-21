@@ -29,6 +29,8 @@ class LatestTrades extends BaseWidget
                     ->sortable(),
                 Tables\Columns\TextColumn::make('type')
                     ->badge(),
+                Tables\Columns\TextColumn::make('created_at')
+                    ->dateTime(),
             ])
             ->actions([
 
