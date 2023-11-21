@@ -37,7 +37,12 @@ class Trade extends Page
                 ->icon('fas-plus')
                 ->size(ActionSize::ExtraLarge)
                 ->color('success')
-                ->form($this->getCreateTransactionFormFields())
+                ->form([
+                    TextInput::make('amount')
+                        ->suffixIcon('fas-euro-sign')
+                        ->required()
+                        ->numeric(),
+                ])
                 ->action(function (array $data, CreateTransaction $createTransaction) {
                     $createTransaction->execute($data, Filament::getTenant(), TransactionType::DEPOSIT);
                 })
@@ -49,7 +54,7 @@ class Trade extends Page
                 ->form($this->getCreateTransactionFormFields())
                 ->action(function (array $data, CreateTransaction $createTransaction) {
                     $createTransaction->execute($data, Filament::getTenant(), TransactionType::WITHDRAW);
-                })
+                }),
         ];
     }
 

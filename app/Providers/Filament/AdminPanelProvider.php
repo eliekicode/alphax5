@@ -54,7 +54,7 @@ class AdminPanelProvider extends PanelProvider
             ->maxContentWidth('full')
             ->sidebarCollapsibleOnDesktop()
             ->topNavigation()
-            ->font('Prompt', provider: GoogleFontProvider::class)
+            ->font("Rubik", provider: GoogleFontProvider::class)
             ->brandName('Alphax5')
             ->tenant(Account::class, ownershipRelationship: 'account')
             ->widgets([])
