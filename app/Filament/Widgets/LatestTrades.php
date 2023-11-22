@@ -35,7 +35,6 @@ class LatestTrades extends BaseWidget
                     ->dateTime(),
             ])
             ->actions([
-
             ])
             ->filters([
                 Tables\Filters\SelectFilter::make('type')

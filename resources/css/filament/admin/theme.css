@@ -57,3 +57,7 @@ html{
 .fi-wi-stats-overview-stat.withdraw__widget .text-3xl{
     @apply text-red-400 !important;
 }
+
+.fi-wi-table .fi-ta-content {
+    @apply h-auto max-h-[338px] overflow-y-scroll !important;
+}

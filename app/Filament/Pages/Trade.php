@@ -11,6 +11,7 @@ use App\Filament\Widgets\BalanceWidget;
 use App\Filament\Widgets\LatestOrders;
 use App\Filament\Widgets\LatestTrades;
 use App\Filament\Widgets\LatestTransactions;
+use App\Filament\Widgets\TradingViewStoriesWidget;
 use App\Models\Currency;
 use Filament\Actions\Action;
 use Filament\Facades\Filament;
@@ -98,6 +99,7 @@ class Trade extends Page
     {
         return [
             LatestOrders::class,
+            TradingViewStoriesWidget::class
         ];
     }
 

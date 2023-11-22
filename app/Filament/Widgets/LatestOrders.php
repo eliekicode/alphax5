@@ -36,13 +36,6 @@ class LatestOrders extends BaseWidget
 
             ])
             ->filters([
-//                Tables\Filters\SelectFilter::make('type')
-//                    ->label('By type')
-//                    ->options(TradeType::class),
-//                Tables\Filters\Filter::make('is_profit')
-//                    ->modifyQueryUsing(fn() => $this->getTableQuery()->whereNull('loss')),
-//                Tables\Filters\Filter::make('is_loss')
-//                    ->modifyQueryUsing(fn() => $this->getTableQuery()->whereNull('profit')),
             ]);
     }
 
