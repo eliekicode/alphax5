@@ -61,3 +61,15 @@ html{
 .fi-wi-table .fi-ta-content {
     @apply h-auto max-h-[338px] overflow-y-scroll !important;
 }
+
+.trade__page__heading{
+    @apply flex items-end;
+}
+
+.trade__page__heading-icon{
+    @apply h-24 w-28 relative -translate-y-[20px];
+}
+
+.trade__page__heading-icon img{
+    @apply -translate-y-[10px] object-center object-cover h-full w-full;
+}

@@ -43,7 +43,7 @@
 
         .chart__widget {
             grid-column-start: span 10;
-            height: 800px;
+            height: 700px;
         }
 
         /*#chart{*/
