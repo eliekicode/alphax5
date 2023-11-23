@@ -126,7 +126,7 @@ class Trade extends Page
     {
         return [
             LatestOrders::class,
-            TradingViewStoriesWidget::class
+//            TradingViewStoriesWidget::class
         ];
     }
 

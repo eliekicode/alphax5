@@ -1,5 +1,5 @@
 <x-filament-panels::header class="relative" :actions="$this->getHeaderActions()">
-    <x-slot:heading class="">
+    <x-slot:heading>
         <div class="trade__page__heading-icon">
             <img src="{{ asset('images/robot-wob.gif') }}" alt="">
         </div>

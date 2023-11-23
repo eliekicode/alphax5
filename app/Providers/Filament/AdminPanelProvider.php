@@ -55,7 +55,7 @@ class AdminPanelProvider extends PanelProvider
             ->maxContentWidth('full')
             ->sidebarCollapsibleOnDesktop()
             ->topNavigation()
-            ->font("Rubik", provider: GoogleFontProvider::class)
+            ->font("Lexend", provider: GoogleFontProvider::class)
             ->brandName('Alphax5')
             ->tenant(Account::class, slugAttribute: 'serial', ownershipRelationship: 'account')
             ->tenantRoutePrefix('account')

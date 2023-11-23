@@ -67,9 +67,15 @@ html{
 }
 
 .trade__page__heading-icon{
-    @apply h-24 w-28 relative -translate-y-[20px];
+    @apply h-32 w-28 absolute top-1/2 -translate-y-1/2;
 }
 
 .trade__page__heading-icon img{
-    @apply -translate-y-[10px] object-center object-cover h-full w-full;
+    @apply -translate-y-[12px] object-center object-cover h-full w-full;
 }
+
+.trade__page__heading-text,
+.trade__page__subheading{
+    @apply px-28;
+}
+
