@@ -1,10 +1,232 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700;800;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 
 @layer components {
-    .home__actions__section{
+    .home__actions__section {
         @apply hidden;
     }
+}
+
+* {
+    @apply font-sans;
+}
+
+.app__layout {
+    @apply bg-white min-h-full pb-24;
+}
+
+.app__topbar-wrapper {
+    @apply flex items-center justify-between px-12 py-6 xl:max-w-7xl  mx-auto;
+}
+
+.navbar__menu {
+    @apply flex items-center gap-x-12;
+}
+
+.app__hero {
+    @apply h-[800px] bg-white;
+}
+
+.app__hero-wrapper {
+    @apply h-full grid grid-cols-2 gap-x-32 px-12 py-6 xl:max-w-7xl place-items-center place-content-center mx-auto;
+}
+
+.app__hero-heading {
+    @apply text-5xl font-medium text-slate-900 leading-tight;
+}
+
+.app__hero-left {
+    @apply grid gap-y-12;
+}
+
+.app__hero-right {
+    @apply w-full rounded-2xl shadow bg-white;
+}
+
+.app__hero-image {
+    @apply h-[500px] ring ring-slate-900 p-1 shadow-md w-full object-center object-cover rounded-2xl;
+}
+
+.app__hero-text{
+    @apply text-xl leading-loose text-slate-500;
+}
+
+.app__hero-action a{
+    @apply inline-flex bg-sky-700 text-white px-6 py-4 font-medium text-lg rounded-md;
+}
+
+.app__hero strong {
+    @apply text-sky-700;
+}
+
+/* Section */
+
+.section {
+    @apply py-40;
+}
+
+.section.primary{
+    @apply bg-sky-700;
+}
+
+.section.gray {
+    @apply bg-slate-100;
+}
+
+.section.white {
+    @apply bg-white;
+}
+
+
+.section__wrapper {
+    @apply mx-auto grid gap-y-20 px-12 xl:max-w-7xl;
+}
+
+.section__heading {
+    @apply text-3xl;
+}
+
+.section.primary .section__heading{
+    @apply text-white;
+}
+
+
+.section__grid {
+    @apply grid gap-x-8;
+}
+
+.section__grid.cols-2 {
+    @apply grid-cols-2;
+}
+
+.section__grid.cols-3 {
+    @apply grid-cols-3;
+}
+
+
+/* Solution card*/
+
+.solution{
+    @apply grid grid-cols-2;
+}
+
+
+/* Card */
+
+.card{
+    @apply grid gap-y-5 p-7;
+}
+
+.card.white{
+    @apply bg-white rounded-md;
+}
+
+.card.centered{
+    @apply place-items-center;
+}
+
+.card__heading{
+    @apply font-bold text-lg;
+}
+
+.card.white .card__heading{
+    @apply text-slate-950;
+}
+
+.card__text{
+    @apply text-sm leading-relaxed;
+}
+
+.card.white .card__text{
+    @apply text-slate-500;
+}
+
+.card.centered .card__text{
+    @apply text-center;
+}
+
+.card__icon{
+    @apply h-20 w-20 p-3 rounded-full flex items-center justify-center;
+}
+
+.card.white .card__icon{
+    @apply bg-sky-950;
+}
+
+.card__icon img{
+    @apply w-full h-full object-center object-cover;
+}
+
+
+.card-cols-2{
+    @apply grid grid-cols-2;
+}
+
+.card__image{
+    @apply rounded-md;
+}
+.card__image img{
+    @apply rounded-md shadow-md;
+}
+
+.card__body{
+    @apply px-10 grid place-content-center gap-y-7;
+}
+
+
+/* Timeline */
+
+.account__timeline{
+    @apply grid mt-12;
+}
+
+.account__timeline-item{
+    @apply border-l relative py-6;
+}
+
+.account__timeline-step{
+    @apply border border-slate-600 text-slate-800 font-bold text-lg h-12 w-12 rounded-full inline-flex items-center justify-center absolute -left-[24px] bg-white;
+}
+
+.account__timeline-body{
+    @apply pl-[44px] space-y-2;
+}
+
+.account__timeline-heading{
+    @apply font-semibold text-xl text-slate-800;
+}
+
+.account__timeline-text{
+    @apply text-slate-500 text-sm;
+}
+
+.accounts__section .section__grid{
+    @apply gap-x-5;
+}
+
+.account__timeline-container{
+    @apply col-span-2 pl-20;
+}
+
+
+/* Account Card*/
+
+.account__card{
+    @apply bg-slate-50 rounded-md shadow;
+}
+
+.account__card .card__heading{
+    @apply text-2xl text-slate-900;
+}
+
+.account__card .card__text{
+    @apply text-slate-600 text-base leading-loose;
+}
+
+.card__action a{
+    @apply inline-flex bg-sky-700 text-white px-6 py-2.5 font-medium text-base rounded-md;
 }
