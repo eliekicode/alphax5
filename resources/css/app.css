@@ -55,15 +55,15 @@
 /*}*/
 
 .navbar__button {
-    @apply text-[#263239] hover:bg-[#dddef6] px-3 h-12 rounded-md transition-all duration-300 ease-in-out;
+    @apply text-[#263239] hover:bg-blue-200 hover:text-blue-500 px-3 h-12 rounded-md transition-all duration-300 ease-in-out;
 }
 
 .navbar__menu {
-    @apply z-0 lg:h-full ring-1 ring-[#dddef6] lg:ring-0 lg:pr-16 grid lg:flex w-[250px] lg:w-auto  shadow lg:shadow-none rounded-lg lg:rounded-none absolute lg:static top-full lg:top-0 right-4 py-3 lg:py-0 px-4 lg:px-0 lg:gap-x-10 divide-y divide-[#dddef6] lg:divide-none transform translate-y-[40px] lg:translate-y-0 opacity-0 lg:opacity-100 transition-all duration-300 ease-in-out;
+    @apply z-0 lg:h-full ring-1 lg:ring-0 lg:pr-16 grid lg:flex w-[250px] lg:w-auto  shadow lg:shadow-none rounded-lg lg:rounded-none absolute lg:static top-full lg:top-0 right-4 py-3 lg:py-0 px-4 lg:px-0 lg:gap-x-10 divide-y divide-[#dddef6] lg:divide-none transform translate-y-[40px] lg:translate-y-0 opacity-0 lg:opacity-100 transition-all duration-300 ease-in-out;
 }
 
 .navbar__menu-item {
-    @apply py-3 lg:py-0 text-slate-500 hover:text-slate-950 transition-all duration-300 ease-in-out lg:flex lg:items-center lg:text-blue-500 lg:font-bold lg:text-lg;
+    @apply py-3 lg:py-0 lg:flex lg:items-center;
 }
 
 .navbar__menu-action {
@@ -71,7 +71,7 @@
 }
 
 .navbar__menu-item svg {
-    @apply text-blue-800 flex-col justify-center items-center lg:stroke-blue-800 lg:h-8 lg:w-8 p-1 rounded-full lg:stroke-2;
+    @apply text-blue-800 bg-blue-200 lg:bg-transparent flex-col justify-center items-center lg:stroke-blue-800 lg:h-8 lg:w-8 p-1 rounded-full stroke-2;
 }
 
 .navbar__menu-item a {
@@ -83,7 +83,7 @@
 }
 
 .navbar__menu.show {
-    @apply translate-y-0 opacity-100 z-20;
+    @apply bg-white translate-y-0 opacity-100 z-20;
 }
 
 .navbar__menu-trigger {
@@ -165,17 +165,17 @@
 }
 
 .goal__card-image {
-    @apply h-[300px] lg:h-[400px] p-8;
+    @apply h-[300px] lg:h-[400px] p-8 bg-blue-50 ring-1 rounded-2xl;
 }
 
 .goal__card-image img {
-    @apply w-full h-full object-center object-cover;
+    @apply w-full h-full object-center object-contain;
 }
 
 /* Section */
 
 .goals__section .section__grid {
-    @apply lg:grid lg:gap-y-6;
+    @apply lg:grid lg:gap-y-12;
 }
 
 
@@ -356,7 +356,7 @@
 /* Get started action*/
 
 .get-started-action {
-    @apply ring-2 inline-flex items-center gap-x-3 bg-blue-600 text-white px-3 py-2 font-medium text-sm rounded-lg hover:bg-blue-800 transition-all duration-300 ease-in-out;
+    @apply ring-2 inline-flex items-center gap-x-3 bg-blue-600 text-white px-3 py-2 font-medium text-sm rounded-2xl hover:bg-blue-800 transition-all duration-300 ease-in-out;
 }
 
 .get-started-action span {

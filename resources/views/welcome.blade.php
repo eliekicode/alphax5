@@ -41,7 +41,7 @@
                 <div class="section__grid">
                     <article class="goal__card">
                         <div class="goal__card-image">
-                            <img src="{{ asset('images/icons/Investment data-rafiki.svg') }}" alt="">
+                            <img src="{{ asset('images/icons/Investment data-amico.svg') }}" alt="">
                         </div>
                         <div class="goal__card-body">
                             <header class="goal__card-header">
@@ -61,7 +61,7 @@
                     </article>
                     <article class="goal__card">
                         <div class="goal__card-image">
-                            <img src="{{ asset('images/icons/Strategic consulting-pana.svg') }}" alt="">
+                            <img src="{{ asset('images/icons/Strategic consulting-rafiki.svg') }}" alt="">
                         </div>
                         <div class="goal__card-body">
                             <header class="goal__card-header">
