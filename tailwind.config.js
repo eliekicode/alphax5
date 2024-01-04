@@ -11,9 +11,21 @@ export default {
         './vendor/filament/**/*.blade.php',
     ],
     theme: {
+        // container: {
+        //     // default breakpoints but with 40px removed
+        //     screens: {
+        //         sm: '640px',
+        //         md: '800px',
+        //         lg: '1012px',
+        //         xl: '1240px',
+        //         '2xl': '1496px',
+        //     },
+        // },
         extend: {
             fontFamily: {
-                'sans': ['Lexend', ...defaultTheme.fontFamily.sans],
+                'sans': ['Kodchasan', ...defaultTheme.fontFamily.sans],
+                'mono': ['"Azeret Mono"', ...defaultTheme.fontFamily.mono],
+                'serif': ['Hepta Slab', ...defaultTheme.fontFamily.serif],
             },
         }
     }

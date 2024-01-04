@@ -79,3 +79,16 @@ html{
     @apply px-28;
 }
 
+
+.status__card {
+    @apply bg-slate-100 rounded-lg p-6 grid gap-y-6 shadow-md;
+}
+
+.status__card-icon{
+    @apply bg-teal-100 h-12 w-12 rounded-full mx-auto inline-flex justify-center items-center;
+}
+
+
+.status__card-text{
+    @apply text-lg text-slate-700;
+}

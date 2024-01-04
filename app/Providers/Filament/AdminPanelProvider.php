@@ -3,6 +3,7 @@
 namespace App\Providers\Filament;
 
 
+use App\Filament\Pages\Auth\Register;
 use App\Models\Account;
 use Filament\FontProviders\GoogleFontProvider;
 use Filament\Http\Middleware\Authenticate;
@@ -28,10 +29,10 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('user')
             ->login()
-            ->registration()
+            ->registration(Register::class)
             ->profile()
             ->colors([
-                'primary' => Color::Sky,
+                'primary' => Color::Blue,
                 'gray' => Color::Slate,
             ])
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')

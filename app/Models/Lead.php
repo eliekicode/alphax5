@@ -10,6 +10,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Lead extends Model
 {
 
+    protected $guarded = [];
+
     public function team(): BelongsTo
     {
         return $this->belongsTo(Team::class);
