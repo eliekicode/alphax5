@@ -87,7 +87,7 @@
         <div class="container">
             <header class="section__header">
                 <h1 class="section__heading">
-                    Wy choose us ?
+                    Why choose us ?
                 </h1>
             </header>
             <div class="section__body">
