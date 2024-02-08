@@ -1,5 +1,7 @@
 <?php
 
+use App\Filament\Pages\Auth\RegisterNotice;
+use App\Http\Controllers\RegisterNoticeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::view('/', 'welcome')->name('home');
+Route::get('/user/register/notice', RegisterNoticeController::class)->name('register-notice')
+->middleware('guest');
 
 

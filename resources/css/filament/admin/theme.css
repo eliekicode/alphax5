@@ -92,3 +92,7 @@ html{
 .status__card-text{
     @apply text-lg text-slate-700;
 }
+
+.notice__container{
+    @apply bg-red-200 !important;
+}

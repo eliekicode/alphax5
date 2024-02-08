@@ -101,7 +101,9 @@ class Register extends BaseRegister
             'lead_provider_id' => $provider?->id,
             'owner_id' => $saleHeadOfDepartment?->id,
             'department_id' => $saleHeadOfDepartment?->department?->id,
-            'last_sale_status' => 'new'
+            'last_sale_status' => 'new',
+            'affiliate' => 'alphax5',
+            'broker' => 'alphax5'
         ]);
 
 
