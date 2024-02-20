@@ -69,8 +69,6 @@ class User extends Authenticatable implements FilamentUser, HasTenants
 
     public function canAccessTenant(Model $tenant): bool
     {
-        dd($this, $this->accounts->contains($tenant));
-        dd($tenant);
         return $this->accounts->contains($tenant);
     }
 
