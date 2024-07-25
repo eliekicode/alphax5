@@ -6,10 +6,12 @@ use App\Enums\Department\Department;
 use App\Enums\User\RoleName;
 use App\Models\Lead;
 use App\Models\LeadProvider;
+use App\Models\Series;
 use App\Models\User;
 use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
 use Filament\Facades\Filament;
 use Filament\Forms\Components\Component;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Http\Responses\Auth\Contracts\RegistrationResponse;
@@ -22,6 +24,7 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
+use Squire\Models\Country;
 
 class Register extends BaseRegister
 {
@@ -39,9 +42,11 @@ class Register extends BaseRegister
 
     protected function getCountryFormComponent(): Component
     {
-        return TextInput::make('country')
+        return Select::make('country')
+            ->searchable()
+            ->preload()
             ->required()
-            ->maxLength(255);
+            ->options(Country::query()->pluck('name', 'name'));
     }
 
     /**
@@ -56,7 +61,7 @@ class Register extends BaseRegister
                         $this->getNameFormComponent(),
                         $this->getEmailFormComponent(),
                         $this->getPhoneFormComponent(),
-                        $this->getCountryFormComponent()
+                        $this->getCountryFormComponent(),
                     ])
                     ->statePath('data'),
             ),
@@ -69,14 +74,21 @@ class Register extends BaseRegister
             $this->rateLimit(4);
         } catch (TooManyRequestsException $exception) {
             Notification::make()
-                ->title(__('filament-panels::pages/auth/register.notifications.throttled.title', [
-                    'seconds' => $exception->secondsUntilAvailable,
-                    'minutes' => ceil($exception->secondsUntilAvailable / 60),
-                ]))
-                ->body(array_key_exists('body', __('filament-panels::pages/auth/register.notifications.throttled') ?: []) ? __('filament-panels::pages/auth/register.notifications.throttled.body', [
-                    'seconds' => $exception->secondsUntilAvailable,
-                    'minutes' => ceil($exception->secondsUntilAvailable / 60),
-                ]) : null)
+                ->title(
+                    __('filament-panels::pages/auth/register.notifications.throttled.title', [
+                        'seconds' => $exception->secondsUntilAvailable,
+                        'minutes' => ceil($exception->secondsUntilAvailable / 60),
+                    ])
+                )
+                ->body(
+                    array_key_exists(
+                        'body',
+                        __('filament-panels::pages/auth/register.notifications.throttled') ?: []
+                    ) ? __('filament-panels::pages/auth/register.notifications.throttled.body', [
+                        'seconds' => $exception->secondsUntilAvailable,
+                        'minutes' => ceil($exception->secondsUntilAvailable / 60),
+                    ]) : null
+                )
                 ->danger()
                 ->send();
 
@@ -103,14 +115,17 @@ class Register extends BaseRegister
             'department_id' => $saleHeadOfDepartment?->department?->id,
             'last_sale_status' => 'new',
             'affiliate' => 'alphax5',
-            'broker' => 'alphax5'
+            'broker' => 'alphax5',
+            'series_id' => Series::query()
+                ->where('prefix', 'LD')
+                ->first()?->id,
         ]);
 
 
-        $this->notify($saleHeadOfDepartment, $this->getCrmUrlByEnvironment(config('app.env')), $provider, 1);
+        $this->notify($saleHeadOfDepartment, $this->getCrmUrlByEnvironment(config('app.env')), $lead);
 
 
-        redirect('user/register')->with('status', 'Your information has been successfully saved! Later, our services will call you back so that we can assist you with activating your account, while giving you more information about our platform.');
+        redirect()->route('register-notice');
 
         return null;
     }
@@ -124,21 +139,18 @@ class Register extends BaseRegister
         }
     }
 
-    private function notify(User|array|Collection $recipients, string $url, LeadProvider $provider, int $leadsCount): void
-    {
-        $queryString = "?tableFilters[last_sale_status][value]=new&tableFilters[lead_provider_id][values][0]=$provider->id&tableSortColumn=created_at&tableSortDirection=desc";
-
-//        if ($recipients instanceof User) {
-//            $queryString .= "&tableFilters[owner_id][value]=$recipients->id";
-//        }
-
+    private function notify(
+        User|array|Collection $recipients,
+        string $url,
+        Lead $lead,
+    ): void {
         Notification::make()
             ->info()
             ->title("New leads loaded")
-            ->body($leadsCount . " " . Str::plural('leads', $leadsCount) . " has been loaded from $provider->name")
+            ->body("A new lead has been registered via " . config('app.url'))
             ->actions([
                 Action::make('View')
-                    ->url(fn() => $url . $queryString)
+                    ->url(fn() => $url . '/' . $lead->id),
             ])
             ->sendToDatabase($recipients)
             ->broadcast($recipients);
