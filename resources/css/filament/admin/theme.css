@@ -1,60 +1,58 @@
-@import '/vendor/filament/filament/resources/css/theme.css';
+@import "/vendor/filament/filament/resources/css/theme.css";
 
 @config 'tailwind.config.js';
 
 :root,
 body,
-html{
+html {
     height: 100% !important;
 }
 
-.tabs{
+.tabs {
     @apply border grid grid-cols-[80px_1fr] w-[80px] max-h-full h-screen;
 }
 
-.tabs__nav-menu{
-    @apply h-full flex flex-col gap-y-4;
+.tabs__nav-menu {
+    @apply flex flex-col h-full gap-y-4;
 }
 
 .tabs__nav-item {
-    @apply cursor-pointer text-center ;
+    @apply text-center cursor-pointer;
 }
 
-.tabs__nav{
+.tabs__nav {
     @apply w-[80px];
 }
 
-.tabs__content{
-    @apply w-full bg-yellow-50 overflow-x-hidden;
+.tabs__content {
+    @apply w-full overflow-x-hidden bg-yellow-50;
 }
 
-.tabs.open{
+.tabs.open {
     @apply w-[450px] transition-all duration-300 ease-in-out;
 }
 
-.tabs.open .tabs__content{
+.tabs.open .tabs__content {
     @apply px-4 bg-white;
 }
 
-
-.fi-logo{
+.fi-logo {
     @apply box-border flex items-center dark:text-white rounded-sm justify-center h-full !important;
 }
 
-.fi-logo img{
+.fi-logo img {
     @apply box-border h-full w-16 dark:p-0.5 object-cover object-center !important;
 }
 
-
-.fi-wi-stats-overview-stat.balance__widget{
+.fi-wi-stats-overview-stat.balance__widget {
     @apply bg-green-50 text-white !important;
 }
 
-.fi-wi-stats-overview-stat.balance__widget .text-3xl{
+.fi-wi-stats-overview-stat.balance__widget .text-3xl {
     @apply text-green-950/60 !important;
 }
 
-.fi-wi-stats-overview-stat.withdraw__widget .text-3xl{
+.fi-wi-stats-overview-stat.withdraw__widget .text-3xl {
     @apply text-red-400 !important;
 }
 
@@ -62,37 +60,39 @@ html{
     @apply h-auto max-h-[338px] overflow-y-scroll !important;
 }
 
-.trade__page__heading{
+.trade__page__heading {
     @apply flex items-end;
 }
 
-.trade__page__heading-icon{
-    @apply h-32 w-28 absolute top-1/2 -translate-y-1/2;
+.trade__page__heading-icon {
+    @apply absolute h-32 -translate-y-1/2 w-28 top-1/2;
 }
 
-.trade__page__heading-icon img{
+.trade__page__heading-icon img {
     @apply -translate-y-[12px] object-center object-cover h-full w-full;
 }
 
 .trade__page__heading-text,
-.trade__page__subheading{
+.trade__page__subheading {
     @apply px-28;
 }
 
-
 .status__card {
-    @apply bg-slate-100 rounded-lg p-6 grid gap-y-6 shadow-md;
+    @apply grid p-6 rounded-lg shadow-md bg-slate-100 gap-y-6;
 }
 
-.status__card-icon{
-    @apply bg-teal-100 h-12 w-12 rounded-full mx-auto inline-flex justify-center items-center;
+.status__card-icon {
+    @apply inline-flex items-center justify-center w-12 h-12 mx-auto bg-teal-100 rounded-full;
 }
 
-
-.status__card-text{
+.status__card-text {
     @apply text-lg text-slate-700;
 }
 
-.notice__container{
+.notice__container {
     @apply bg-red-200 !important;
+}
+
+.topBar {
+    @apply bg-white !important;
 }
