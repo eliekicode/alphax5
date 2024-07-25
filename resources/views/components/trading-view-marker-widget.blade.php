@@ -139,6 +139,26 @@
                     }
                 ],
                 "originalTitle": "Forex"
+            },
+            {
+                "title": "Crypto",
+                "symbols": [
+                    {
+                        "s": "CRYPTOCAP:BTC"
+                    },
+                    {
+                        "s": "CRYPTOCAP:ETH"
+                    },
+                    {
+                        "s": "BINANCE:BTCUSDT"
+                    },
+                    {
+                        "s": "BINANCE:XRPUSDT"
+                    },
+                    {
+                        "s": "COINBASE:SOLUSD"
+                    }
+                ]
             }
         ]
         }
