@@ -122,7 +122,7 @@ class Register extends BaseRegister
         ]);
 
 
-        $this->notify($saleHeadOfDepartment, $this->getCrmUrlByEnvironment(config('app.env')), $lead);
+        $this->notify($saleHeadOfDepartment, $lead);
 
 
         redirect()->route('register-notice');
@@ -130,27 +130,19 @@ class Register extends BaseRegister
         return null;
     }
 
-    private function getCrmUrlByEnvironment(string $environment)
-    {
-        if ($environment === 'local') {
-            return 'http://trading-plateform.test/department/leads';
-        } elseif ($environment === 'production') {
-            return 'https://crm.alphax5.com/department/leads';
-        }
-    }
-
     private function notify(
         User|array|Collection $recipients,
-        string $url,
         Lead $lead,
     ): void {
+        $url = config('app.url') . "/leads/$lead->id";
+
         Notification::make()
             ->info()
             ->title("New leads loaded")
             ->body("A new lead has been registered via " . config('app.url'))
             ->actions([
                 Action::make('View')
-                    ->url(fn() => $url . '/' . $lead->id),
+                    ->url(fn() => $url),
             ])
             ->sendToDatabase($recipients)
             ->broadcast($recipients);
